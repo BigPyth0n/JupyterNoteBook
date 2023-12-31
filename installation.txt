@@ -1,1 +1,10 @@
+در مرحله اول روی VPS یک فولدر به نام Jupyter ایجاد کردم به این صورت که مسیرش به شرح ذیل میباشد
 
+/root/Jupyt
+
+در این مرحله کانینر داکر رو با ستوری که در زیر میارم بالا میارم به شرط اینکه تمامی فایل های ایجاد شده در داخل کانتینر نوک بوک در مسیر مشخص شده روی سرور مجازی ذخیره خواهند شد.
+
+docker run -i -t -p 8888:8888 -v /root/Jupyt:/opt/notebooks continuumio/anaconda3 /bin/bash -c "pwd && ls -l /opt/notebooks && /opt/conda/bin/conda install jupyter -y --quiet && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
+و با توجه به اینکه در NginX هاستی مشخص کردم به آدرس
+note.aramanapakhsh.com
+میتونم با توکنی که در حین اجرای نوک بوک مشخص میشه به نوت بوک لاگین کنم
